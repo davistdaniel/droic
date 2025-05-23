@@ -1,0 +1,530 @@
+body {
+    font-family: 'Monaco', Monospace;
+    background: radial-gradient(
+      circle at 50% 10%,
+      rgba(255, 251, 214, 0.85) 0%,
+      rgba(236, 239, 201, 0.82) 15%,
+      rgba(135, 115, 150, 0.84) 30%,
+      rgba(110, 90, 140, 0.86) 45%,
+      rgba(90, 95, 145, 0.88) 60%,
+      rgba(70, 90, 150, 0.9) 75%,
+      rgba(50, 95, 155, 0.92) 90%,
+      rgba(30, 100, 145, 0.95) 100%
+    );
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    opacity: 1;
+  }
+  
+  .dash-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .flex-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    justify-content: center;
+  }
+  
+  /* === Device Status Boxes === */
+  .device-status-box {
+    background: white;
+    border-radius: 150px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin: 0 auto 20px;
+    max-width: 1000px;
+  }
+  
+  .device-status-success,
+  .device-status-error {
+    transition: background 0.6s ease-out, color 0.3s ease;
+  }
+  
+  .device-status-success {
+    background: #f2fbf2;
+    color: #3c763d;
+    border-left-color: #1a4d05;
+  }
+  
+  .device-status-success:hover,
+  .device-status-error:hover {
+    background: linear-gradient(
+      135deg,
+      #2a2affff,
+      #1e43ffc3,
+      #1e85ffc3,
+      #1f8ee3bc,
+      #2299c3cc,
+      #22aac3ff
+    );
+    color: white;
+  }
+  
+  .device-status-error {
+    background: #ffe0e0;
+    color: #a94442;
+  }
+  
+  .device-status-error:hover {
+    color: white;
+    border-left-color: #850d0d;
+  }
+  
+  /* device info styling */
+  .device-info-box {
+    background-color: white;
+    border-radius: 150px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin: 0 auto 20px;
+    max-width: 1000px;
+    transition: background 0.6s ease-out;
+  }
+  
+  .device-info-box:hover {
+    background: linear-gradient(
+      135deg,
+      #2a2affff,
+      #1e43ffc3,
+      #1e85ffc3,
+      #1f8ee3bc,
+      #2299c3cc,
+      #22aac3ff
+    );
+    color: white;
+  }
+  
+  .device-section {
+    margin-bottom: 10px;
+  }
+  
+  .device-heading {
+    margin: 5px 0;
+  }
+  
+  .device-info-empty {
+    color: #a94442;
+    background-color: #ffe0e0;
+  }
+  
+  .device-info-error {
+    color: red;
+  }
+  
+  .device-info-reconnecting {
+    border: 2px solid #ff9800;
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* monitoring status styling */
+  .monitoring-status-active {
+    color: #28a745 !important;
+  }
+  
+  .monitoring-status-inactive {
+    color: #dc3545 !important;
+  }
+  
+  .monitoring-status-paused {
+    color: #ff9800 !important;
+    font-weight: bold;
+  }
+  
+
+  #device-selection-container > div,
+  #monitoring-controls,
+  #specific-metrics-container {
+    background-color: white;
+    padding: 16px 20px;
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    transition: background 0.6s ease-out;
+  }
+  
+  #device-selection-container > div:hover,
+  #monitoring-controls:hover,
+  #specific-metrics-container:hover {
+    background: linear-gradient(
+      135deg,
+      #2a2affff,
+      #1e43ffc3,
+      #1e85ffc3,
+      #1f8ee3bc,
+      #2299c3cc,
+      #22aac3ff
+    );
+    color: white;
+  }
+
+
+.Select-menu-outer,
+.Select-menu,
+.Select-option {
+  color: black !important;
+  background-color: white !important;
+}
+
+.pill-value {
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  color:#000000;
+}
+  /* buttons */
+  button {
+    background-color: #2a2affff;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 1s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  
+  button:disabled {
+    background-color: #c6d2e6;
+    cursor: not-allowed;
+  }
+  
+  button#start-button:enabled {
+    background-color: #dff0d8;
+    color: #0f5132;
+  }
+  
+  button#start-button:hover {
+    background: #bdfdbd;
+  }
+
+  button#start-button:hover:disabled {
+    background: #c6d2e6;
+  }
+  
+  button#stop-button:enabled {
+    background-color: #f2dede;
+    color: #842029;
+  }
+  
+  button#stop-button:hover:enabled {
+    background: #f5c6c6;
+  }
+  
+  button#stop-button:hover:disabled {
+    background: #c6d2e6;
+  }
+  
+  button#clear-button:enabled {
+    background-color: #f2eade;
+    color: #7a3e00;
+  }
+  
+  button#clear-button:hover {
+    background: #ffedd2;
+  }
+  
+  button#wifi-button:disabled {
+    background-color: #c6d2e6;
+    cursor: not-allowed;
+  }
+  
+
+  input[type="number"] {
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 14px;
+    width: 60px;
+    height: 20px;
+  }
+  
+  .input[type="number"]:hover {
+    border: 1px solid #3744fe;
+    box-shadow: 0 0 8px rgba(26, 115, 232, 0.3);
+  }
+  
+
+
+  .Select-control {
+    border-radius: 999px !important;
+    border: 1px solid #ccc !important;
+    background-color: white;
+    font-size: 14px;
+    height: 35px !important;
+    padding: 6px 12px !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: none !important;
+  }
+  
+  .Select-control:hover {
+    border-color: #3744fe !important;
+    box-shadow: 0 0 8px rgba(26, 115, 232, 0.3);
+  }
+  
+  .Select-arrow-zone {
+    display: none !important;
+  }
+  
+  .Select-placeholder,
+  .Select-value {
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+    overflow-wrap: anywhere;
+    font-size: 14px !important;
+    line-height: 0.95 !important;
+  }
+  
+  .VirtualizedSelectOption,
+  .Select-menu-outer {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    background-color: white;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    animation: dropdownFade 0.3s ease;
+  }
+  
+  .Select-option {
+    padding: 10px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .Select-option:hover {
+    background-color: #f1f3f4;
+    cursor: pointer;
+  }
+  
+  .Select-option.is-selected {
+    background-color: #e8f0fe;
+    font-weight: bold;
+  }
+  
+
+  #droic-plot {
+    padding: 35px;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* === Labels === */
+  label {
+    font-size: 15px;
+    font-weight: 500;
+    margin-right: 8px;
+  }
+  
+  /* === Pills === */
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+  }
+  
+  .status-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-radius: 999px;
+    border: 2px solid #0f5132;
+    padding: 10px 16px;
+    min-width: 100px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    flex-shrink: 0;
+  }
+  
+  .pill-title {
+    font-size: 12px;
+    color: #000000;
+    margin-bottom: 4px;
+  }
+  
+  .pill-value {
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    color:#000000;
+  }
+  
+  .conn-wifi {
+    color: #0b5394;
+  }
+  
+  .conn-usb {
+    color: #874d00;
+  }
+  
+  /* === Notifications === */
+  .notification-success,
+  .notification-error,
+  .notification-info {
+    padding: 10px 20px;
+    border-radius: 999px;
+    display: block;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    position: fixed;
+    bottom: calc(10px + env(safe-area-inset-top, 0px));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    font-weight: normal;
+    font-size: 14px;
+    border: none;
+    white-space: pre-wrap;
+    animation: notification-slide-up 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  
+  .notification-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 2px solid #3c763d;
+  }
+  
+  .notification-error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 2px solid #a94442;
+  }
+  
+  .notification-info {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 2px solid #856404;
+  }
+  
+  .notification-hidden {
+    display: none;
+  }
+
+/* === Specific Metrics Dropdown: Shrinking Pills with Hidden Scrollbar === */
+#specific-metrics-container .Select-control {
+  border-radius: 999px !important;
+  border: 1px solid #ccc !important;
+  background-color: white;
+  font-size: 14px;
+  max-height: 80px !important; /* Allows for multiple rows */
+  padding: 0px 5px!important; /* Reduced top/bottom padding to eliminate white space */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-shadow: none !important;
+  overflow-y: auto !important;
+  overflow-x: auto !important;
+  white-space: normal;
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth; /* Added smooth scrolling */
+  scroll-padding: 0; /* Ensures no padding when scrolling */
+}
+
+#specific-metrics-container .Select-control::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Container that holds selected values (pills) */
+#specific-metrics-container .Select-multi-value-wrapper {
+  
+  display: flexbox;
+  flex-direction: row;
+  flex-wrap: wrap !important;
+  white-space: normal;
+  gap: 8px;
+  width: 100%;
+  margin-top: 2px;
+  margin-bottom: 0px;
+}
+
+/* Each selected value as a responsive pill */
+#specific-metrics-container .Select--multi .Select-value {
+  background-color: #2a2affff;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 10px;
+  white-space: nowrap;
+  display: inline-flex; /* Changed to inline-flex */
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: auto;
+  height: auto;
+  margin: 0; /* Remove any default margins */
+}
+
+/* Hover effect to indicate clickability */
+#specific-metrics-container .Select--multi .Select-value:hover {
+  background-color: rgb(0, 0, 250);
+}
+
+/* Hide the close icon completely */
+#specific-metrics-container .Select-value-icon {
+  display: none;
+}
+  
+  /* === Animations === */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.5);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(255, 152, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 152, 0, 0);
+    }
+  }
+  
+  @keyframes dropdownFade {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes notification-slide-up {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-5px);
+    }
+    80% {
+      transform: translateX(-50%) translateY(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+  

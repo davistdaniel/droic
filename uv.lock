@@ -115,7 +115,7 @@ wheels = [
 
 [[package]]
 name = "droic"
-version = "0.1.0"
+version = "0.1b0"
 source = { virtual = "." }
 dependencies = [
     { name = "dash" },
