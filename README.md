@@ -47,7 +47,15 @@
 
 - Python 3.11+
 - **ADB (Android device Bridge) must installed and added to your system's PATH**
-  - Installation of ADB varies according to your operating system. Please follow instructions which apply to you operating system.
+  - Installation of ADB varies according to your operating system. Please follow instructions which apply to your specific operating system.
+    - On MacOS, ADB can be installed using homebrew.
+      ```bash
+      brew install --cask android-platform-tools
+      ```
+    - On Linux:
+      ```bash
+      sudo apt install adb
+      ```
   - For droic to work, the command `adb` should work.
   - This can be checked easily by executing in a terminal:
       ```bash
@@ -58,31 +66,38 @@
 - **Android device(s) with USB debugging enabled.** 
   - For enabling USB-debugging, you would likely have to first enable Developer options on your device.
   - Depending on your device model, this may vary. Please follow instructions specific to your device model.
+- **Confirm ADB Authorization on Device**
+  - When you connect your device via USB and ADB is initialized, a prompt may appear on your device asking:
+
+    >"Allow USB debugging from this computer?"
+
+  - You must accept this prompt for Droic to function correctly.
+  - Optionally check "Always allow from this computer" to avoid repeating this step.
 - **Initially, device must be connected via USB.** 
-  - Once the USB status shows in droic, you can try connecting via Wi-Fi by clicking on the Wi-Fi Connect button.
-  - To enable ADB over Wi-Fi for the first time, manual setup may be needed.
+  - Once the USB status shows in droic, you can try connecting via Wi-Fi by clicking on the Wi-Fi Connect button Your device must be connected to same network as the computer on which droic is run.
 
 
 ### 📦 Installation
 
 #### Python
 
+1. Clone this repository
+    ```bash
+    git clone https://github.com/davistdaniel/droic.git
+    cd droic
+    ```
+2. Make a python virtual environment (recommended) and then install droic dependencies :
+    - dash>=3.0.4
+    - pandas>=2.2.3
+    - plotly>=6.0.1
 
-```bash
-# Clone this repository
-git clone https://github.com/davistdaniel/droic.git
-cd droic
-```
-
-```bash
-# Install droic dependencies
-python -m pip install -r requirements.txt
-```
-
-```bash
-# start droic
-python droic.py
-```
+    ```bash
+    python -m pip install -r requirements.txt
+    ```
+3. Start droic
+    ```bash
+    python droic.py
+    ```
 
 Once running, visit: [http://127.0.0.1:8050](http://127.0.0.1:8050)
 
@@ -102,8 +117,8 @@ All collected data is stored in a local `droic.db` SQLite file. It includes:
 
 ## 💻 Compatibility
 
-✅ Tested on **macOS**  
-⚠️ Expected to work on **Windows** and **Linux** (ADB & Python must be configured)
+- Tested on **macOS**  and **Linux (Ubuntu)**
+- Expected to work on **Windows**  (ADB & Python must be configured properly)
 
 ---
 

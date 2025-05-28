@@ -8,6 +8,18 @@ def remove_ansi_escape_codes(text):
     ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
     return ansi_escape.sub('', text)
 
+
+def parse_top_memory(value_str):
+    value_str = value_str.upper().strip()
+    if value_str.endswith("G"):
+        return int(float(value_str[:-1]) * 1024)
+    elif value_str.endswith("M"):
+        return int(float(value_str[:-1]))
+    elif value_str.endswith("K"):
+        return int(value_str[:-1])/1024
+    else:
+        return int(value_str)
+
 def parse_top_summary(lines, device_serial=None):
     data = {}
     if len(lines) < 4:
@@ -21,9 +33,9 @@ def parse_top_summary(lines, device_serial=None):
             data[f'tasks_{label.lower()}'] = int(value)
 
         # Line 2: Memory
-        mem_matches = re.findall(r'(\d+)K\s+(\w+)', lines[1])
-        for value, label in mem_matches:
-            data[f'mem_{label.lower()}'] = int(value)
+        mem_matches = re.findall(r'(\d+[KMG]?)\s+(\w+)', lines[1])
+        for value_str, label in mem_matches:
+            data[f'mem_{label.lower()}'] = parse_top_memory(value_str)
 
         # Line 3: Swap
         swap_matches = re.findall(r'(\d+)K\s+(\w+)', lines[2])
