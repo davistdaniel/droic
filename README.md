@@ -67,13 +67,20 @@
 
 #### Python
 
+
 ```bash
+# Clone this repository
+git clone https://github.com/davistdaniel/droic.git
+cd droic
+```
+
+```bash
+# Install droic dependencies
 python -m pip install -r requirements.txt
 ```
 
-### 🚀 Running Droic
-
 ```bash
+# start droic
 python droic.py
 ```
 
