@@ -1,11 +1,19 @@
 
 # droic
 
-<div style="float: right; margin-left: 10px; vertical-align: middle;">
-  <img src="./assets/droic_logo.svg" alt="Droic Logo" width="150" />
+<div align="center">
+  <img src="./assets/droic_logo.svg" alt="kurup logo" width="200"/>
+  <br/>
+  <br/>
+  
+  ![License](https://img.shields.io/badge/license-MIT-blue.svg)
+  ![Version](https://img.shields.io/badge/version-0.1b0-orange.svg)
+  ![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
+  
+  *Monitoring dashboard for android device metrics*
 </div>
 
-**Droic** is a cross-platform Python application that interfaces with Android devices via **ADB** (USB or Wi-Fi) to extract and visualize real-time system metrics like **CPU usage, memory**, and **tasks data**. Built with **Dash** and **Plotly**, it offers a UI and **local SQLite database** logging for historical insights.
+**Droic** is a Python application that interfaces with Android devices via **ADB** (USB or Wi-Fi) to extract and visualize real-time system metrics like **CPU usage, memory**, and **tasks data**. Built with **Dash** and **Plotly**, it offers a UI and **local SQLite database** logging for historical insights.
 
 ---
 
@@ -38,10 +46,21 @@
 ### ✅ Requirements
 
 - Python 3.11+
-- ADB (Android device Bridge) installed and added to your system's PATH
-- Android device(s) with USB debugging enabled.
-- Initially, device must be connected via USB.
-- To enable ADB over Wi-Fi for the first time, manual setup may be needed.
+- **ADB (Android device Bridge) must installed and added to your system's PATH**
+  - Installation of ADB varies according to your operating system. Please follow instructions which apply to you operating system.
+  - For droic to work, the command `adb` should work.
+  - This can be checked easily by executing in a terminal:
+      ```bash
+      adb --version
+      adb devices
+      ```
+    These should print the ADB version and list connected devices (or start the daemon if not running).
+- **Android device(s) with USB debugging enabled.** 
+  - For enabling USB-debugging, you would likely have to first enable Developer options on your device.
+  - Depending on your device model, this may vary. Please follow instructions specific to your device model.
+- **Initially, device must be connected via USB.** 
+  - Once the USB status shows in droic, you can try connecting via Wi-Fi by clicking on the Wi-Fi Connect button.
+  - To enable ADB over Wi-Fi for the first time, manual setup may be needed.
 
 
 ### 📦 Installation
@@ -62,8 +81,6 @@ Once running, visit: [http://127.0.0.1:8050](http://127.0.0.1:8050)
 
 #### Docker
 
-
-
 ---
 
 ## 🗃️ Data Storage
@@ -82,6 +99,10 @@ All collected data is stored in a local `droic.db` SQLite file. It includes:
 ⚠️ Expected to work on **Windows** and **Linux** (ADB & Python must be configured)
 
 ---
+
+## Supported metrics
+
+
 
 ## 🤝 Contributing
 
