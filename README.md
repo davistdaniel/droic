@@ -25,9 +25,11 @@
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshot
 
-> Coming soon.
+<div>
+  <img src="./assets/droic_screenshot.webp" alt="Droic Logo" width="1000" />
+</div>
 
 ---
 
@@ -44,6 +46,8 @@
 
 ### 📦 Installation
 
+#### Python
+
 ```bash
 python -m pip install -r requirements.txt
 ```
@@ -55,6 +59,10 @@ python droic.py
 ```
 
 Once running, visit: [http://127.0.0.1:8050](http://127.0.0.1:8050)
+
+#### Docker
+
+
 
 ---
 
